@@ -5,7 +5,7 @@ on:
     branches-ignore:
       - l10n_dev
   release:
-    types: [prereleased]
+    types: [released]
 
 jobs:
   check_commit_msg:
@@ -29,7 +29,7 @@ jobs:
         platform: [macos-latest]
         arch: [x64]
         build_type: [Release]
-        qt_version: [5.15.8]
+        qt_version: [5.15.2]
 #         include:
 #           - platform: windows-latest
 #             arch: x64
@@ -203,7 +203,7 @@ jobs:
           path: build/Qv2ray.AppImage
       - name: Linux - ${{ matrix.qt_version }} - Upload binaries to release
         uses: svenstaro/upload-release-action@v1-release
-        if: github.event_name == 'release' && matrix.platform == 'ubuntu-16.04' && matrix.qt_version == '5.15.8' && matrix.build_type == 'Release'
+        if: github.event_name == 'release' && matrix.platform == 'ubuntu-18.04' && matrix.qt_version == '5.15.2' && matrix.build_type == 'Release'
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: build/Qv2ray.AppImage
@@ -219,7 +219,7 @@ jobs:
           path: Qv2ray.dmg
       - name: macOS - ${{ matrix.qt_version }} - Upload binaries to release
         uses: svenstaro/upload-release-action@v1-release
-        if: github.event_name == 'release' && matrix.platform == 'macos-latest' && matrix.qt_version == '5.15.8' && matrix.build_type == 'Release'
+        if: github.event_name == 'release' && matrix.platform == 'macos-latest' && matrix.qt_version == '5.15.2' && matrix.build_type == 'Release'
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: Qv2ray.dmg
@@ -241,7 +241,7 @@ jobs:
           path: release.7z
       - name: Win-${{ matrix.arch }} - ${{ matrix.qt_version }} - Upload binaries to release
         uses: svenstaro/upload-release-action@v1-release
-        if: github.event_name == 'release' && matrix.platform == 'windows-latest' && matrix.qt_version == '5.15.8' && matrix.build_type == 'Release'
+        if: github.event_name == 'release' && matrix.platform == 'windows-latest' && matrix.qt_version == '5.15.2' && matrix.build_type == 'Release'
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: release.7z
