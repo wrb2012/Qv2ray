@@ -27,7 +27,7 @@ jobs:
       matrix:
         platform: [ubuntu-20.04, windows-latest, macos-latest]
         build_type: [RelWithDebInfo, Release]
-        qt_version: [6.3.0]
+        qt_version: [6.4.0]
         include:
           - platform: windows-latest
             qtarch: win64_msvc2019_64
